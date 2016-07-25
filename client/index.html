@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ceasar Cipher Project</title>
+    <link rel='stylesheet' href='style.css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <header>Caesar Cipher</header>
+        <div class="textarea">
+          <h3>Please type in the text you want to decode:</h3>
+          <textarea rows="10" cols="80" class="text-to-decode-area" placeholder="Enter text"></textarea>
+        </div>
+        <div class="shift-field">
+          <h4>Enter the number you want to shift with:</h4>
+          <input type="number" id="input" class="number-input-field" placeholder="Shift number">
+        </div>
+        <div class="send-message">
+          <button type="button" id="submit" class="send-message-button">SEND MESSAGE TO DECODE</button>
+        </div>
+        <div class="loading"></div>
+        <div class="decoded-text-output">
+          <p></p>
+        </div>
+      </div>
+    </main>
+    <script src='request.js'></script>
+    <script src='dom.js'></script>
+    <script src='frontend.js'></script>
+  </body>
+</html>
