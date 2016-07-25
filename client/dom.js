@@ -11,7 +11,7 @@ var domElements = (function () {
   function displayMessage(response) {
     var result = JSON.parse(response)
     if (result.text) {
-      message.innerHTML = 'Result message: ' + result.text;
+      message.innerHTML = result.text;
     } else {
       message.innerHTML = result.error
       alert('Shift is out of bound');
