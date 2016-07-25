@@ -8,9 +8,6 @@ var CeasarDecryptFunctions = (function () {
     }}
 
   function decode(text, shift) {
-    if (shift < 0) {
-      return shiftMessage(text, shift + 26);
-    }
     var output = '';
     for (var i = 0; i < text.length; i++) {
       var char = text[i];

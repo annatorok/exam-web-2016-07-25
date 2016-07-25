@@ -10,15 +10,15 @@
       <div class="wrapper">
         <header>Caesar Cipher</header>
         <div class="textarea">
-          <h3>Please type in the text you want to decode:</h3>
+          <h4>Please type in the text you want to decode:</h4>
           <textarea rows="10" cols="80" class="text-to-decode-area" placeholder="Enter text"></textarea>
         </div>
         <div class="shift-field">
-          <h4>Enter the number you want to shift with:</h4>
-          <input type="number" id="input" class="number-input-field" placeholder="Shift number">
+          <label for="input">Shift:</label>
+          <input type="number" id="input" class="number-input-field">
         </div>
         <div class="send-message">
-          <button type="button" id="submit" class="send-message-button">SEND MESSAGE TO DECODE</button>
+          <button type="button" id="submit" class="send-message-button">DECRYPT</button>
         </div>
         <div class="loading"></div>
         <div class="decoded-text-output">
