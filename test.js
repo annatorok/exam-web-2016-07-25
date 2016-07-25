@@ -4,7 +4,7 @@ var tape = require('tape');
 var decrypt = require('./decrypt');
 
 tape('test with positiv shift with all data', function (t) {
-  t.deepEqual(decrypt.decode('oruhp lsvxp groru vlw', 3), 'lorem ipsum dolor sit' );
+  t.deepEqual(decrypt.decode('oruhp lsvxp groru vlw', 3), 'lorem ipsum dolor sit');
   t.end();
 });
 
