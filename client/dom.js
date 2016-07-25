@@ -19,17 +19,16 @@ var domElements = (function () {
   }
 
   function notLoadedYet() {
-    document.querySelector('.loading').style.display = "block";
+    document.querySelector('.loading').style.display = 'block';
   }
 
   function loaded() {
-    document.querySelector('.loading').style.display = "none";
+    document.querySelector('.loading').style.display = 'none';
   }
 
   return {
-    displayMessage: displayMessage,
-    notLoadedYet: notLoadedYet,
-    loaded: loaded
-  }
-
+    displayMessage,
+    notLoadedYet,
+    loaded,
+  };
 })();

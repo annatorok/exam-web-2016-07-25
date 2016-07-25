@@ -1,11 +1,6 @@
 'use strict';
 
 var CeasarDecryptFunctions = (function () {
-  function errorHandling (err) {
-    if (err) {
-      console.log(err);
-      return;
-    }}
 
   function decode(text, shift) {
     var output = '';
@@ -21,28 +16,28 @@ var CeasarDecryptFunctions = (function () {
         }
       }
       output += char;
-  }
-  return output
+    }
+    return output;
   }
 
   function shiftMessage(text, shift, callback) {
     var decodeResult = decode(text,shift);
     if (shift >= -25 && shift <= 25 && text !== '' && shift !== '') {
-    callback(null, {
-      'status': 'ok',
-      'text': decodeResult
-    });
-  } else {
-    callback({
-      'status': 'error',
-      'error': 'Shift is out of bound'
-    });
+      callback(null, {
+        'status': 'ok',
+        'text': decodeResult
+      });
+    } else {
+      callback({
+        'status': 'error',
+        'error': 'Shift is out of bound'
+      });
+    }
   }
-};
   return {
-    decode: decode,
-    shiftMessage: shiftMessage
-  }
+    decode,
+    shiftMessage,
+  };
 })();
 
 module.exports = CeasarDecryptFunctions;
