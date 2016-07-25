@@ -9,9 +9,13 @@ var message = document.querySelector('p');
 var domElements = (function () {
 
   function displayMessage(response) {
-    console.log(response);
-    message.innerHTML = '';
-    message.innerHTML = response;
+    var result = JSON.parse(response)
+    if (result.text) {
+      message.innerHTML = result.text;
+    } else {
+      message.innerHTML = result.error
+      alert('Shift is out of bound');
+    }
   }
 
   function notLoadedYet() {

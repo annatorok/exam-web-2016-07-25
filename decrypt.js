@@ -7,7 +7,7 @@ var CeasarDecryptFunctions = (function () {
       return;
     }}
 
-  function shiftMessage(text, shift, callback) {
+  function decode(text, shift) {
     if (shift < 0) {
       return shiftMessage(text, shift + 26);
     }
@@ -16,23 +16,36 @@ var CeasarDecryptFunctions = (function () {
       var char = text[i];
       if (char.match(/[a-zA-Z]/)) {
         var charCode = text.charCodeAt(i);
-  			if ((charCode >= 65) && (charCode <= 90)) {
+        if ((charCode >= 65) && (charCode <= 90)) {
           char = String.fromCharCode(((charCode - 65 - shift % 26) + 26) % 26 + 65);
-        }
-  			else if ((charCode >= 97) && (charCode <= 122)) {
+        } else if ((charCode >= 97) && (charCode <= 122)) {
           char =
-String.fromCharCode(((charCode - 97 - shift % 26) + 26) % 26 + 97);
+          String.fromCharCode(((charCode - 97 - shift % 26) + 26) % 26 + 97);
         }
-  		}
-  		output += char;
       }
-      callback(output);
+      output += char;
   }
-    return {
-      shiftMessage: shiftMessage
+  return output
+  }
+
+  function shiftMessage(text, shift, callback) {
+    var decodeResult = decode(text,shift);
+    if (shift >= -25 && shift <= 25 && text !== '' && shift !== '') {
+    callback(null, {
+      'status': 'ok',
+      'text': decodeResult
+    });
+  } else {
+    callback({
+      'status': 'error',
+      'error': 'Shift is out of bound'
+    });
+  }
+};
+  return {
+    decode: decode,
+    shiftMessage: shiftMessage
   }
 })();
 
 module.exports = CeasarDecryptFunctions;
-
-// console.log(CeasarDecryptFunctions.shiftMessage('alma', 5));

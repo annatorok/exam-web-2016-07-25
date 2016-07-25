@@ -11,8 +11,12 @@ app.use(express.static('client'));
 
 
 app.post('/decode', urlencodedParser, function(req, res) {
-  decrypt.shiftMessage(req.body.text, req.body.shift, function (result) {
-    res.send(result);
+  decrypt.shiftMessage(req.body.text, req.body.shift, function (err, result) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.send(result);
+    }
   });
 });
 
